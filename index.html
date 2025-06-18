@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Озвучка текста</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+    textarea { width: 100%; height: 150px; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 10px; }
+    audio { margin-top: 20px; width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>Озвучка текста</h1>
+  <textarea id="textInput" placeholder="Введи текст здесь..."></textarea><br>
+  <button onclick="generate()">Озвучить</button>
+  <audio id="audioPlayer" controls style="display:none;"></audio>
+  <p id="status"></p>
+
+  <script>
+    async function generate() {
+      const text = document.getElementById('textInput').value;
+      if (!text) return alert("Введите текст!");
+
+      document.getElementById('status').innerText = "Ожидание аудио...";
+      
+      // 👉 Здесь вставь ссылку на обработку в Colab или сервер
+      const audioURL = `https://YOUR_LINK_TO_MP3/audio.mp3`; // Заглушка
+
+      document.getElementById('audioPlayer').src = audioURL;
+      document.getElementById('audioPlayer').style.display = "block";
+      document.getElementById('status').innerText = "Готово!";
+    }
+  </script>
+</body>
+</html>
